@@ -1,0 +1,78 @@
+#VRML_SIM R2022a utf8
+WorldInfo {
+  CFM 1e-08
+  basicTimeStep 10
+  physicsDisableTime 10
+}
+Viewpoint {
+  orientation -0.1501452637853321 0.2846453286836039 0.9468016881171243 1.0166048112916366
+  position -0.8943592334910158 -1.2428673082881525 0.9089946466410181
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  appearance Parquetry {
+    type "light strip"
+  }
+}
+Robot {
+  translation 0 0 0.74
+  children [
+    JetBotRaspberryPiCamera {
+      rotation 0 1 0 1.5708
+      fieldOfView 1.7
+    }
+  ]
+  name "camera_robot"
+  controller "ros_cam_controller"
+}
+Robot {
+  translation 0 0 0.29
+  children [
+    Hinge2Joint {
+      jointParameters HingeJointParameters {
+      }
+      jointParameters2 JointParameters {
+        axis 0 1 0
+      }
+      device [
+        RotationalMotor {
+          name "motor_pitch"
+          minPosition -1
+          maxPosition 1
+        }
+      ]
+      device2 [
+        RotationalMotor {
+          name "motor_roll"
+          minPosition -1
+          maxPosition 1
+        }
+      ]
+      endPoint Solid {
+        rotation 0 1 0 0
+        children [
+          DEF PLATE_SHAPE Shape {
+            appearance PBRAppearance {
+              metalness 0.1
+            }
+            geometry Box {
+              size 0.5 0.5 0.04
+            }
+          }
+        ]
+        boundingObject USE PLATE_SHAPE
+      }
+    }
+  ]
+  name "ball_and_plate_robot"
+  controller "ball_and_plate_ROS_controller"
+}
+Ball {
+  translation -0.11 0.1 0.51
+  color 0.643137 0 0
+  radius 0.01
+  mass 0.1
+}
