@@ -1,7 +1,7 @@
 Primer Ball and Plate sistema za predmet Mehatronika, primenjena elektronika 4. godina.
 
 # Opis primera
-Primer obuhvata kompletnu povratnu spregu koja tezi da lopticu dovede i zadrzi na centar ploce.
+Primer obuhvata kompletnu povratnu spregu koja tezi da lopticu dovede i zadrzi na centru ploce.
 Postoji kamera koja snima plocu od gore, to je glavni senzor.
 Aktuatori su dva motora koja mogu da naginju plocu oko sredine u obe koordinate.
 
